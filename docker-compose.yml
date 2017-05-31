@@ -1,0 +1,19 @@
+version: '3'
+services:
+  proxy:
+    build: ./dockerfiles/nginx
+    ports:
+    - "80:80"
+    volumes:
+    - ./cache:/var/cache/nginx
+    links:
+    - redis
+    extra_hosts:
+    - "redisbox:HOSTIP"
+  redis:
+    image: redis
+    volumes:
+    - ./data:/data
+    ports:
+    - "6379:6379"
+

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+service dnsmasq restart
+/usr/local/openresty/bin/openresty -c /etc/nginx/nginx.conf
